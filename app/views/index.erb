@@ -4,11 +4,16 @@
   </head>
   <body>
     <% @comedians.each do |comedian| %>
-    <ul>
-      <li id="name-<%= comedian.id %>">Name: <%= comedian.name %></li>
-      <li id="age-<%= comedian.id %>">Age: <%= comedian.age %></li>
-      <li id="specials-<%= comedian.id %>">Specials: <%= comedian.specials %></li>
-    </ul>
+      <p>Name: <%= comedian.name %></p>
+      <p>Age: <%= comedian.age %></p>
+      <p>Specials:</p>
+        <ul>
+          <% comedian.specials.each do |special| %>
+            <li><%= special.name %></li>
+          <% end %>
+        </ul>
+      <p>Special Count: <%= comedian.special_count %></p>
     <% end %>
+    <p>Average-age: <%= @comedians.avg_age %></p>
   </body>
 </html>
